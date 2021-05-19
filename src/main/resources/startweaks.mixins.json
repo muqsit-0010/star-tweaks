@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "xyz.starmun.startweaks.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "startweaks.refmap.json",
+  "mixins": [
+    "PacketBufferEncoderMixin",
+    "PacketBufferDecoderMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "minVersion": "0.8"
+}
