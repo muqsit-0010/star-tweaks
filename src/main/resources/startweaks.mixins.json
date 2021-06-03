@@ -5,10 +5,13 @@
   "refmap": "startweaks.refmap.json",
   "mixins": [
     "PacketBufferEncoderMixin",
-    "PacketBufferDecoderMixin"
+    "PacketBufferDecoderMixin",
+    "ZLevelModifierMixin",
+    "ZoomModifierMixin"
   ],
   "injectors": {
     "defaultRequire": 1
   },
+
   "minVersion": "0.8"
 }
