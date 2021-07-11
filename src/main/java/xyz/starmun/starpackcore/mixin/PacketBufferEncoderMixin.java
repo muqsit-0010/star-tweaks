@@ -1,4 +1,4 @@
-package xyz.starmun.startweaks.mixin;
+package xyz.starmun.starpackcore.mixin;
 
 import net.minecraft.network.PacketBuffer;
 import org.spongepowered.asm.mixin.Mixin;

@@ -1,4 +1,4 @@
-package xyz.starmun.startweaks.mixin;
+package xyz.starmun.starpackcore.mixin;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Constant;
