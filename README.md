@@ -1,1 +1,1 @@
-﻿# starack-core
+﻿# starpack-core
