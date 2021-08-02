@@ -124,6 +124,14 @@ repositories {
     maven {
         url "https://www.cursemaven.com"
     }
+    maven { url "https://maven.shedaniel.me/" }
+    maven {
+        url "https://maven.saps.dev/minecraft"
+        content {
+            includeGroup "dev.ftb.mods"
+            includeGroup "dev.latvian.mods"
+        }
+    }
     maven {
         name = "jei"
         url "https://dvs1.progwml6.com/files/maven"
@@ -138,8 +146,7 @@ dependencies {
     compile 'org.spongepowered:mixin:0.8'
     annotationProcessor 'org.spongepowered:mixin:0.8:processor'
     implementation fg.deobf("curse.maven:itemzoom-261725:3174664")
-    runtimeOnly fg.deobf("curse.maven:crafting-station-318551:3084325")
-    runtimeOnly fg.deobf("curse.maven:jei-238222:3318286")
+    implementation fg.deobf("curse.maven:jei-238222:3383214")
 
     // You may put jars on which you depend on in ./libs or you may define them like so..
     // compile "some.group:artifact:version:classifier"

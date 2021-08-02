@@ -4,6 +4,8 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "starpackcore.refmap.json",
   "mixins": [
+    "ChunkSerializerMixin",
+    "TextureUtilMixin",
     "PacketBufferEncoderMixin",
     "PacketBufferDecoderMixin",
     "ZLevelModifierMixin",
@@ -12,6 +14,7 @@
   "injectors": {
     "defaultRequire": 1
   },
-
+  "client": [
+  ],
   "minVersion": "0.8"
 }
