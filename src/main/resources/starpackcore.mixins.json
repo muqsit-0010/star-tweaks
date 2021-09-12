@@ -7,9 +7,16 @@
     "TextureUtilMixin",
     "PacketBufferEncoderMixin",
     "PacketBufferDecoderMixin",
-    "ZLevelModifierMixin",
-    "ZoomModifierMixin",
-    "EntityPropertiesMixin"
+    "EntityPropertiesMixin",
+    "ItemStackMixin",
+    "itemzoom.ZLevelModifierMixin",
+    "itemzoom.ZoomModifierMixin",
+    "minecolonies.BuildingSawmillMixin",
+    "minecolonies.EntityAIWorkDeliverymanMixin",
+    "minecolonies.JobDeliverymanMixin",
+    "minecolonies.AbstractEntityAICraftingMixin",
+    "industrialagriculture.SoulInitMixin",
+    "multipart.StarItemRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

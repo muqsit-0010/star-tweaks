@@ -1,4 +1,4 @@
-package xyz.starmun.starpackcore.mixin;
+package xyz.starmun.starpackcore.mixin.itemzoom;
 
 import mezz.itemzoom.client.RenderHandler;
 import org.spongepowered.asm.mixin.Mixin;

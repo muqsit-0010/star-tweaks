@@ -96,15 +96,22 @@ dependencies {
     // compile against the JEI API but do not include it at runtime
     // don't worry about loom "not finding a forge mod" here,
     // JEI's api just doesn't have any class with an @Mod annotation
-    modCompileOnly "mezz.jei:jei-1.16.4:${jei_version}:api"
+    modCompileOnly "mezz.jei:jei-1.16.5:${jei_version}:api"
     // at runtime, use the full JEI jar
     //modApi "curse.maven:architectury-forge-419699:3409465"
     modApi "me.shedaniel:architectury-forge:${project.architectury_version}"
-    modRuntime "mezz.jei:jei-1.16.4:${jei_version}"
+    modRuntime "mezz.jei:jei-1.16.5:${jei_version}"
 
     modImplementation "curse.maven:itemzoom-261725:3174664"
     modCompileOnly "curse.maven:citadel-331936:3390029"
-    modImplementation "curse.maven:ftb-library-forge-404465:3373833"
+    modRuntime "curse.maven:kubejs-forge-238086:3419118"
+    modRuntime "curse.maven:rhino-416294:3354603"
+    modImplementation "curse.maven:minecolonies-245506:3419455"
+    modImplementation "curse.maven:structurize-298744:3419409"
+    modImplementation "curse.maven:mystical-agriculture-246640:3398788"
+    modImplementation "curse.maven:cucumber-272335:3349690"
+    modCompileOnly "curse.maven:codechicken-lib-1-8-242818:3398096"
+    modImplementation "curse.maven:industrial-agriculture-356483:3393382"
 
 }
 
