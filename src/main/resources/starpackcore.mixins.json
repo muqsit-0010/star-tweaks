@@ -15,7 +15,9 @@
     "minecolonies.EntityAIWorkDeliverymanMixin",
     "minecolonies.JobDeliverymanMixin",
     "minecolonies.AbstractEntityAICraftingMixin",
-    "industrialagriculture.SoulInitMixin",
+    "minecolonies.FarmerFieldsModuleWindowMixin",
+    "minecolonies.MinimumStockModuleMixin",
+    "minecolonies.AbstractCraftingBuildingModuleMixin",
     "multipart.StarItemRendererMixin"
   ],
   "injectors": {
