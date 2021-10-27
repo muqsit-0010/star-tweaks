@@ -8,7 +8,11 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 @Mixin(RenderHandler.class)
 public class ZoomModifierMixin {
 	@ModifyConstant(method = "renderZoomedStack", remap = false, constant = @Constant(floatValue = 17))
-	private float  getMaxDecodePacketSize(float old) {
+	private float  modifyZoom(float old) {
 		return 8.5f;
 	}
-}
+
+	@ModifyConstant(method = "renderZoomedStack", remap = false, constant = @Constant(floatValue = 100f))
+	private float  modifyZLevel(float old) {
+		return 200;
+	}}

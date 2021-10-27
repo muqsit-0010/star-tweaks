@@ -4,26 +4,28 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "ChunkSerializerMixin",
-    "TextureUtilMixin",
-    "PacketBufferEncoderMixin",
-    "PacketBufferDecoderMixin",
     "EntityPropertiesMixin",
     "ItemStackMixin",
-    "itemzoom.ZLevelModifierMixin",
-    "itemzoom.ZoomModifierMixin",
+    "PacketBufferDecoderMixin",
+    "PacketBufferEncoderMixin",
+    "TextureUtilMixin",
+    "forge.FMLStatusPingMixin",
+    "forge.FMLStatusPingMixin$SerializerMixin",
+    "manaartifice.MAConfiguredFeaturesMixin",
+    "minecolonies.AbstractCraftingBuildingModuleMixin",
+    "minecolonies.AbstractEntityAICraftingMixin",
     "minecolonies.BuildingSawmillMixin",
     "minecolonies.EntityAIWorkDeliverymanMixin",
-    "minecolonies.JobDeliverymanMixin",
-    "minecolonies.AbstractEntityAICraftingMixin",
     "minecolonies.FarmerFieldsModuleWindowMixin",
-    "minecolonies.MinimumStockModuleMixin",
-    "minecolonies.AbstractCraftingBuildingModuleMixin",
-    "multipart.StarItemRendererMixin"
+    "minecolonies.JobDeliverymanMixin",
+    "minecolonies.MinimumStockModuleMixin"
   ],
   "injectors": {
     "defaultRequire": 1
   },
   "client": [
+    "itemzoom.ZoomModifierMixin",
+    "multipart.StarItemRendererMixin"
   ],
   "minVersion": "0.8"
 }
