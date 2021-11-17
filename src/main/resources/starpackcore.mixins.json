@@ -18,7 +18,11 @@
     "minecolonies.EntityAIWorkDeliverymanMixin",
     "minecolonies.FarmerFieldsModuleWindowMixin",
     "minecolonies.JobDeliverymanMixin",
-    "minecolonies.MinimumStockModuleMixin"
+    "minecolonies.MinimumStockModuleMixin",
+    "toolbelt.ToolBeltInventoryMixin",
+    "toolbelt.ToolBeltItemMixin",
+    "toolbelt.BeltSlotScreenMixin",
+    "toolbelt.BeltContainerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

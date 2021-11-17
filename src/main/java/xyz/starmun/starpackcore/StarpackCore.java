@@ -1,7 +1,5 @@
 package xyz.starmun.starpackcore;
 
-import com.minecolonies.coremod.colony.buildings.modules.FarmerFieldModule;
-import com.minecolonies.coremod.colony.buildings.workerbuildings.BuildingFarmer;
 import net.minecraftforge.fml.common.Mod;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
