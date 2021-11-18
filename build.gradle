@@ -1,5 +1,5 @@
 plugins {
-    id 'dev.architectury.loom' version '0.7.2-SNAPSHOT'
+    id 'dev.architectury.loom' version '0.10.0-SNAPSHOT'
     id 'maven-publish'
 }
 
@@ -9,33 +9,37 @@ targetCompatibility = JavaVersion.VERSION_1_8
 archivesBaseName = project.archives_base_name
 version = project.mod_version
 group = project.maven_group
-
 loom {
     // use this if you are using the official mojang mappings
     // and want loom to stop warning you about their license
     silentMojangMappingsLicense()
 
-    // specify the mixin configs used in this mod
-    // this will be added to the jar manifest as well!
-    mixinConfigs = [
-            "starpackcore.mixins.json"
-    ]
+    // since loom 0.10, you are **required** to use the
+    // "forge" block to configure forge-specific features,
+    // such as the mixinConfigs array or datagen
+    forge {
+        // specify the mixin configs used in this mod
+        // this will be added to the jar manifest as well!
+        mixinConfigs = [
+                "starpackcore.mixins.json"
+        ]
 
-    // missing access transformers?
-    // don't worry, you can still use them!
-    // note that your AT *MUST* be located at
-    // src/main/resources/META-INF/accesstransformer.cfg
-    // to work as there is currently no config option to change this.
-    // also, any names used in your access transformer will need to be
-    // in SRG mapped ("func_" / "field_" with MCP class names) to work!
-    // (both of these things may be subject to change in the future)
+        // missing access transformers?
+        // don't worry, you can still use them!
+        // note that your AT *MUST* be located at
+        // src/main/resources/META-INF/accesstransformer.cfg
+        // to work as there is currently no config option to change this.
+        // also, any names used in your access transformer will need to be
+        // in SRG mapped ("func_" / "field_" with MCP class names) to work!
+        // (both of these things may be subject to change in the future)
 
-    // this will create a data generator configuration
-    // that you can use to automatically generate assets and data
-    // using architectury loom. Note that this currently *only* works
-    // for forge projects made with architectury loom!
-    dataGen {
-        mod project.mod_id
+        // this will create a data generator configuration
+        // that you can use to automatically generate assets and data
+        // using architectury loom. Note that this currently *only* works
+        // for forge projects made with architectury loom!
+        dataGen {
+            mod project.mod_id
+        }
     }
 
     // This allows you to modify your launch configurations,
@@ -100,14 +104,14 @@ dependencies {
     // at runtime, use the full JEI jar
     //modApi "curse.maven:architectury-forge-419699:3409465"
     modApi "me.shedaniel:architectury-forge:${project.architectury_version}"
-    modRuntime "mezz.jei:jei-1.16.5:${jei_version}"
+    modRuntimeOnly "mezz.jei:jei-1.16.5:${jei_version}"
 
     modImplementation "curse.maven:itemzoom-261725:3174664"
     modCompileOnly "curse.maven:citadel-331936:3390029"
-    modRuntime "curse.maven:kubejs-forge-238086:3419118"
-    modRuntime "curse.maven:rhino-416294:3354603"
-    modImplementation "curse.maven:minecolonies-245506:3419455"
-    modImplementation "curse.maven:structurize-298744:3419409"
+    modRuntimeOnly "curse.maven:kubejs-forge-238086:3419118"
+    modRuntimeOnly "curse.maven:rhino-416294:3354603"
+    modImplementation "curse.maven:minecolonies-245506:3528500"
+    modImplementation "curse.maven:structurize-298744:3488829"
     modImplementation "curse.maven:mystical-agriculture-246640:3398788"
     modImplementation "curse.maven:cucumber-272335:3349690"
     modImplementation "curse.maven:codechicken-lib-1-8-242818:3398096"
@@ -127,20 +131,15 @@ processResources {
     }
 }
 
-tasks.withType(JavaCompile).configureEach {
+tasks.withType(JavaCompile) {
     // ensure that the encoding is set to UTF-8, no matter what the system default is
     // this fixes some edge cases with special characters not displaying correctly
     // see http://yodaconditions.net/blog/fix-for-java-file-encoding-problems-with-gradle.html
     // If Javadoc is generated, this must be specified in that task too.
-    it.options.encoding = "UTF-8"
-
-    // The Minecraft launcher currently installs Java 8 for users, so your mod probably wants to target Java 8 too
-    // JDK 9 introduced a new way of specifying this that will make sure no newer classes or methods are used.
-    // We'll use that if it's available, but otherwise we'll use the older option.
-    def targetVersion = 8
-    if (JavaVersion.current().isJava9Compatible()) {
-        it.options.release = targetVersion
-    }
+    options.encoding = "UTF-8"
+    // when using 1.17, this should be 16
+    // when using 1.16, this should be 8
+    options.release = 8
 }
 
 java {
