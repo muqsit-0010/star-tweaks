@@ -2,13 +2,13 @@ package xyz.starmun.starpackcore.mixin.minecolonies;
 
 import com.google.common.collect.ImmutableList;
 import com.minecolonies.api.colony.buildings.modules.ICraftingBuildingModule;
-import com.minecolonies.api.colony.buildings.workerbuildings.IBuildingPublicCrafter;
 import com.minecolonies.api.colony.requestsystem.request.IRequest;
 import com.minecolonies.api.colony.requestsystem.request.RequestState;
 import com.minecolonies.api.colony.requestsystem.requestable.crafting.PublicCrafting;
 import com.minecolonies.api.crafting.IRecipeStorage;
 import com.minecolonies.api.entity.ai.statemachine.states.IAIState;
-import com.minecolonies.coremod.colony.buildings.AbstractBuildingWorker;
+import com.minecolonies.coremod.colony.buildings.AbstractBuilding;
+import com.minecolonies.coremod.colony.buildings.modules.CraftingWorkerBuildingModule;
 import com.minecolonies.coremod.colony.jobs.AbstractJobCrafter;
 import com.minecolonies.coremod.entity.ai.basic.AbstractEntityAICrafting;
 import com.minecolonies.coremod.entity.ai.basic.AbstractEntityAIInteract;
@@ -21,15 +21,12 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import xyz.starmun.starpackcore.StarpackCore;
 
 import static com.minecolonies.api.entity.ai.statemachine.states.AIWorkerState.*;
-import static com.minecolonies.api.entity.ai.statemachine.states.AIWorkerState.START_WORKING;
 
 @Mixin(value = AbstractEntityAICrafting.class, remap = false)
-public abstract class AbstractEntityAICraftingMixin<J extends AbstractJobCrafter<?, J>, B extends AbstractBuildingWorker> extends AbstractEntityAIInteract<J, B> {
+public abstract class AbstractEntityAICraftingMixin<J extends AbstractJobCrafter<?, J>, B extends AbstractBuilding> extends AbstractEntityAIInteract<J, B>{
     @Shadow
     protected IRecipeStorage currentRecipeStorage;
 
@@ -70,7 +67,7 @@ public abstract class AbstractEntityAICraftingMixin<J extends AbstractJobCrafter
 
     @Inject(method = "getRequiredProgressForMakingRawMaterial", at = @At("HEAD"), cancellable = true)
     public void getRequiredProgressForMakingRawMaterial(CallbackInfoReturnable<Integer> cir) {
-        int jobModifier = this.worker.getCitizenData().getCitizenSkillHandler().getLevel(((IBuildingPublicCrafter) this.getOwnBuilding()).getCraftSpeedSkill()) / 2;// 451
+        int jobModifier = this.worker.getCitizenData().getCitizenSkillHandler().getLevel(((CraftingWorkerBuildingModule)this.getModuleForJob()).getCraftSpeedSkill()) / 2;// 452
         int modifier = PROGRESS_MULTIPLIER / Math.min(jobModifier + 1, MAX_LEVEL) * HITTING_TIME;// 452
         cir.setReturnValue(modifier);
     }
@@ -165,7 +162,7 @@ public abstract class AbstractEntityAICraftingMixin<J extends AbstractJobCrafter
 
     @Unique
     private int outputModifier() {
-        int modifier = worker.getCitizenData().getCitizenSkillHandler().getLevel(getOwnBuilding().getPrimarySkill());
+        int modifier = worker.getCitizenData().getCitizenSkillHandler().getLevel(((CraftingWorkerBuildingModule) getModuleForJob()).getCraftSpeedSkill());
         return (int) Math.ceil((modifier / 3) + 1);
     }
 
