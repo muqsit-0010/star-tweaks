@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import xyz.starmun.starpackcore.StarpackCore;
 
-@Mixin(value = BeltScreen.class, remap = false)
+@Mixin(value = BeltScreen.class)
 public class BeltSlotScreenMixin extends AbstractContainerScreen<BeltContainer> {
 
     @Inject(method = "<init>", at = @At("TAIL"))

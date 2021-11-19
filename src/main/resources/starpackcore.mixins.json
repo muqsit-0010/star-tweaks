@@ -14,7 +14,6 @@
     "manaartifice.MAConfiguredFeaturesMixin",
     "minecolonies.AbstractCraftingBuildingModuleMixin",
     "minecolonies.AbstractEntityAICraftingMixin",
-    "minecolonies.BuildingSawmillMixin",
     "minecolonies.EntityAIWorkDeliverymanMixin",
     "minecolonies.FarmerFieldsModuleWindowMixin",
     "minecolonies.JobDeliverymanMixin",

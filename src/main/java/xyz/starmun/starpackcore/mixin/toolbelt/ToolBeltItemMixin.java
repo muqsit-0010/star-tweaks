@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import static dev.gigaherz.toolbelt.belt.ToolBeltItem.getSlotsCount;
 import static dev.gigaherz.toolbelt.belt.ToolBeltItem.setSlotsCount;
 
-@Mixin(value = ToolBeltItem.class, remap = false)
+@Mixin(value = ToolBeltItem.class)
 public class ToolBeltItemMixin {
     @Inject(method = "getUpgradeXP", at = @At("HEAD"), cancellable = true)
     private static void getUpgradeXP(ItemStack stack, CallbackInfoReturnable<Integer> cir){

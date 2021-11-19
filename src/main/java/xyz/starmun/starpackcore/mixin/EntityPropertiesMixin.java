@@ -10,6 +10,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.lang.ref.WeakReference;
 
+@SuppressWarnings("deprecation")
 @Mixin(value = EntityProperties.class, remap = false)
 public class EntityPropertiesMixin<T extends Entity>  {
     @Shadow private WeakReference<T> entity;
