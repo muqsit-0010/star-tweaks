@@ -1,4 +1,4 @@
-package xyz.starmun.starpackcore.mixin;
+package xyz.starmun.starpackcore.mixin.minecraft;
 
 import com.mojang.blaze3d.platform.TextureUtil;
 import org.lwjgl.system.MemoryUtil;

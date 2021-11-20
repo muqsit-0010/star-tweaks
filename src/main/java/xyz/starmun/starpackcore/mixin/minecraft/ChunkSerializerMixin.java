@@ -1,4 +1,4 @@
-package xyz.starmun.starpackcore.mixin;
+package xyz.starmun.starpackcore.mixin.minecraft;
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.chunk.storage.ChunkSerializer;

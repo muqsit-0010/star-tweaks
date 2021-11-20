@@ -1,4 +1,4 @@
-package xyz.starmun.starpackcore.mixin;
+package xyz.starmun.starpackcore.mixin.minecraft;
 
 import net.minecraft.network.FriendlyByteBuf;
 import org.spongepowered.asm.mixin.Mixin;

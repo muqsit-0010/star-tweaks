@@ -1,4 +1,4 @@
-package xyz.starmun.starpackcore.mixin;
+package xyz.starmun.starpackcore.mixin.minecraft;
 
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;

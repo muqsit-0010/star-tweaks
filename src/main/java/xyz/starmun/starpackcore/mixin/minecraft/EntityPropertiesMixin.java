@@ -1,4 +1,4 @@
-package xyz.starmun.starpackcore.mixin;
+package xyz.starmun.starpackcore.mixin.minecraft;
 
 import com.github.alexthe666.citadel.server.entity.datatracker.EntityProperties;
 import net.minecraft.world.entity.Entity;
@@ -22,6 +22,5 @@ public class EntityPropertiesMixin<T extends Entity>  {
              return;
          }
          cir.setReturnValue(null);
-         return;
     }
 }

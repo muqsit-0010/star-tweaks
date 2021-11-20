@@ -1,5 +1,6 @@
 package xyz.starmun.starpackcore;
 
+import net.minecraft.world.level.block.grower.AbstractTreeGrower;
 import net.minecraftforge.fml.common.Mod;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
