@@ -1,6 +1,7 @@
 //file:noinspection GroovyAssignabilityCheck
 plugins {
     id 'dev.architectury.loom' version '0.10.0-SNAPSHOT'
+    id "com.matthewprenger.cursegradle" version "1.4.0"
     id 'maven-publish'
 }
 
@@ -195,6 +196,24 @@ publishing {
         // retrieving dependencies.
         maven {
             url "file:///${project.projectDir}/mcmodsrepo"
+        }
+    }
+}
+if(System.getenv('CURSE_DEPLOY')) {
+    curseforge {
+        apiKey = System.getenv('CURSE_DEPLOY')
+        //noinspection GroovyAssignabilityCheck
+        project {
+            id = project.curseforge_id
+            releaseType = "${release_type}"
+            addGameVersion "Forge"
+            addGameVersion "${minecraft_version}"
+            addGameVersion "${java_version}"
+            mainArtifact(remapJar){
+                displayName = "${archivesBaseName}-${minecraft_version}-${mod_version}"
+            }
+            changelog = new File("${rootDir.toPath()}/changelog.md").text
+            changelogType = 'markdown'
         }
     }
 }

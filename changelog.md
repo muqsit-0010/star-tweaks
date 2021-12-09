@@ -1,0 +1,2 @@
+- Added reference to Ambient sounds BiomeArea to ensure class load
+- Fixes Ambient sound client crash
