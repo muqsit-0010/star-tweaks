@@ -24,7 +24,9 @@
   },
   "client": [
     "itemzoom.ZLevelModifierMixin",
-    "multipart.StarItemRendererMixin"
+    "multipart.StarItemRendererMixin",
+    "agricraft.MysticalAgricultureCompatClientMixin"
+
   ],
   "minVersion": "0.8"
 }

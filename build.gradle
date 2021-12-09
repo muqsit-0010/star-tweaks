@@ -1,3 +1,4 @@
+//file:noinspection GroovyAssignabilityCheck
 plugins {
     id 'dev.architectury.loom' version '0.10.0-SNAPSHOT'
     id 'maven-publish'
@@ -116,6 +117,8 @@ dependencies {
     modImplementation "curse.maven:cucumber-272335:3349690"
     modImplementation "curse.maven:codechicken-lib-1-8-242818:3398096"
     modImplementation "curse.maven:tool-belt-260262:3258349"
+    modImplementation "curse.maven:infinitylib-251396:3539825"
+    modImplementation "curse.maven:agricraft-225635:3539829"
     modCompileOnly "curse.maven:mana-and-artifice-406360:3391266"
 
 }
@@ -156,6 +159,7 @@ jar {
 
     // add some additional metadata to the jar manifest
     manifest {
+        //noinspection GrDeprecatedAPIUsage
         attributes([
                 "Specification-Title"     : project.mod_id,
                 "Specification-Vendor"    : project.mod_author,
