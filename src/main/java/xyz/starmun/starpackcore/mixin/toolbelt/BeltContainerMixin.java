@@ -21,7 +21,7 @@ public abstract class BeltContainerMixin extends AbstractContainerMenu {
 
 
     @Mutable
-    @Shadow
+    @Shadow(remap = false)
     @Final
     public int beltSlots;
 
