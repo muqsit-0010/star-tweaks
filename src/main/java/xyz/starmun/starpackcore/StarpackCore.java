@@ -1,5 +1,6 @@
 package xyz.starmun.starpackcore;
 
+import com.terraforged.mod.profiler.crash.CrashReportBuilder;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import org.apache.logging.log4j.LogManager;
@@ -14,6 +15,9 @@ public class StarpackCore {
     public StarpackCore(){
         if(ModList.get().isLoaded("ambientsounds")){
             StarpackCore.LOGGER.info("Assuring Load:" + AmbientEnviroment.BiomeArea.class.getCanonicalName());
+        }
+        if(ModList.get().isLoaded("terraforged")){
+            StarpackCore.LOGGER.info("Assuring Load" + CrashReportBuilder.class.getCanonicalName());
         }
     }
 }
