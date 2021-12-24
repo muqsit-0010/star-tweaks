@@ -1,6 +1,7 @@
 //file:noinspection GroovyAssignabilityCheck
 plugins {
-    id 'dev.architectury.loom' version '0.10.0-SNAPSHOT'
+    id "architectury-plugin" version "3.4-SNAPSHOT"
+    id "dev.architectury.loom" version "0.7.2-SNAPSHOT"
     id "com.matthewprenger.cursegradle" version "1.4.0"
     id 'maven-publish'
 }
@@ -19,7 +20,7 @@ loom {
     // since loom 0.10, you are **required** to use the
     // "forge" block to configure forge-specific features,
     // such as the mixinConfigs array or datagen
-    forge {
+   // forge {
         // specify the mixin configs used in this mod
         // this will be added to the jar manifest as well!
         mixinConfigs = [
@@ -42,7 +43,7 @@ loom {
         dataGen {
             mod project.mod_id
         }
-    }
+    //}
 
     // This allows you to modify your launch configurations,
     // for example to add custom arguments. In this case, we want
@@ -106,22 +107,26 @@ dependencies {
     // at runtime, use the full JEI jar
     //modApi "curse.maven:architectury-forge-419699:3409465"
     modApi "me.shedaniel:architectury-forge:${project.architectury_version}"
-    modRuntimeOnly "mezz.jei:jei-1.16.5:${jei_version}"
+    modRuntime "mezz.jei:jei-1.16.5:${jei_version}"
 
     modImplementation "curse.maven:itemzoom-261725:3174664"
     modCompileOnly "curse.maven:citadel-331936:3390029"
     modCompileOnly "curse.maven:ambientsounds-254284:3516278"
-    modRuntimeOnly "curse.maven:kubejs-forge-238086:3419118"
-    modRuntimeOnly "curse.maven:rhino-416294:3354603"
+    modRuntime "curse.maven:kubejs-forge-238086:3419118"
+    modRuntime "curse.maven:rhino-416294:3354603"
     modImplementation "curse.maven:minecolonies-245506:3528500"
     modImplementation "curse.maven:structurize-298744:3488829"
     modImplementation "curse.maven:mystical-agriculture-246640:3398788"
     modImplementation "curse.maven:cucumber-272335:3349690"
     modImplementation "curse.maven:codechicken-lib-1-8-242818:3398096"
     modImplementation "curse.maven:tool-belt-260262:3258349"
+    modImplementation "curse.maven:polymorph-388800:3568463"
+    modImplementation "curse.maven:silent-gear-297039:3540183"
+    modImplementation "curse.maven:silent-lib-242998:3385768"
     modCompileOnly "curse.maven:infinitylib-251396:3539825"
     modCompileOnly "curse.maven:agricraft-225635:3539829"
     modCompileOnly "curse.maven:mana-and-artifice-406360:3391266"
+    modCompileOnly "curse.maven:terraforged-363820:3460560"
 
 }
 
@@ -136,15 +141,20 @@ processResources {
     }
 }
 
-tasks.withType(JavaCompile) {
+tasks.withType(JavaCompile).configureEach {
     // ensure that the encoding is set to UTF-8, no matter what the system default is
     // this fixes some edge cases with special characters not displaying correctly
     // see http://yodaconditions.net/blog/fix-for-java-file-encoding-problems-with-gradle.html
     // If Javadoc is generated, this must be specified in that task too.
-    options.encoding = "UTF-8"
-    // when using 1.17, this should be 16
-    // when using 1.16, this should be 8
-    options.release = 8
+    it.options.encoding = "UTF-8"
+
+    // The Minecraft launcher currently installs Java 8 for users, so your mod probably wants to target Java 8 too
+    // JDK 9 introduced a new way of specifying this that will make sure no newer classes or methods are used.
+    // We'll use that if it's available, but otherwise we'll use the older option.
+    def targetVersion = 8
+    if (JavaVersion.current().isJava9Compatible()) {
+        it.options.release = targetVersion
+    }
 }
 
 java {

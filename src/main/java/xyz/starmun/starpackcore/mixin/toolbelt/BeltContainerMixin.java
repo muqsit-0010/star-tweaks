@@ -45,12 +45,12 @@ public abstract class BeltContainerMixin extends AbstractContainerMenu {
         }
     }
 
-    @ModifyConstant(method = "bindPlayerInventory", constant = @Constant(intValue = 51))
+    @ModifyConstant(method = "bindPlayerInventory", constant = @Constant(intValue = 51),remap = false)
     public int modifyInventoryY(int y) {
         return 74;
     }
 
-    @ModifyConstant(method = "bindPlayerInventory", constant = @Constant(intValue = 109))
+    @ModifyConstant(method = "bindPlayerInventory", constant = @Constant(intValue = 109),remap = false)
     public int modifyHotbarY(int y) {
         return 132;
     }

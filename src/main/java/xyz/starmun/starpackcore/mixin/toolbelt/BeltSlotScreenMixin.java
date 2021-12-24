@@ -25,7 +25,7 @@ public class BeltSlotScreenMixin extends AbstractContainerScreen<BeltContainer> 
         this.inventoryLabelY = this.imageHeight - 94;// 23
     }
 
-    @Shadow
+    @Shadow(remap=false)
     @Final
     private static ResourceLocation GUI_TEXTURE;
 
