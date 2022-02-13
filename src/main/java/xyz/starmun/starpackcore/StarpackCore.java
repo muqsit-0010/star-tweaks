@@ -1,6 +1,7 @@
 package xyz.starmun.starpackcore;
 
 import com.terraforged.mod.profiler.crash.CrashReportBuilder;
+import dan200.computercraft.shared.util.DirectionUtil;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import org.apache.logging.log4j.LogManager;
@@ -18,6 +19,9 @@ public class StarpackCore {
         }
         if(ModList.get().isLoaded("terraforged")){
             StarpackCore.LOGGER.info("Assuring Load" + CrashReportBuilder.class.getCanonicalName());
+        }
+        if(ModList.get().isLoaded("computercraft")){
+            StarpackCore.LOGGER.info("Assuring Load" + DirectionUtil.class.getCanonicalName());
         }
     }
 }

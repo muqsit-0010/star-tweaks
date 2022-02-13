@@ -127,6 +127,7 @@ dependencies {
     modCompileOnly "curse.maven:agricraft-225635:3539829"
     modCompileOnly "curse.maven:mana-and-artifice-406360:3391266"
     modCompileOnly "curse.maven:terraforged-363820:3460560"
+    modCompileOnly "curse.maven:cc-tweaked-282001:3579697"
 
 }
 
