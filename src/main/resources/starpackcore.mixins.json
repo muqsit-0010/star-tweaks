@@ -17,8 +17,7 @@
     "toolbelt.ToolBeltInventoryMixin",
     "toolbelt.ToolBeltItemMixin",
     "toolbelt.BeltSlotScreenMixin",
-    "toolbelt.BeltContainerMixin",
-    "silentgear.GearDataMixin"
+    "toolbelt.BeltContainerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

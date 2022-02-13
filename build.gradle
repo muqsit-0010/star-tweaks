@@ -121,8 +121,6 @@ dependencies {
     modImplementation "curse.maven:codechicken-lib-1-8-242818:3398096"
     modImplementation "curse.maven:tool-belt-260262:3258349"
     modImplementation "curse.maven:polymorph-388800:3568463"
-    modImplementation "curse.maven:silent-gear-297039:3540183"
-    modImplementation "curse.maven:silent-lib-242998:3385768"
     modCompileOnly "curse.maven:infinitylib-251396:3539825"
     modCompileOnly "curse.maven:agricraft-225635:3539829"
     modCompileOnly "curse.maven:mana-and-artifice-406360:3391266"
